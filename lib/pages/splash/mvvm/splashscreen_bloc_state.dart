@@ -1,7 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:mobile_kary_corenitymps_kbm/blocs/splash/splashscreen_bloc_model.dart';
 
-class SplashScreenBlocState extends Equatable {
+import 'splashscreen_bloc_model.dart';
+
+abstract class SplashScreenBlocState extends Equatable {
   const SplashScreenBlocState(this.model);
 
   final SplashScreenBlocModel model;
@@ -17,15 +18,25 @@ class SplashScreenStateInit extends SplashScreenBlocState {
   List<Object> get props => [model];
 }
 
+class SplashScreenBlocStatePackageInformed extends SplashScreenBlocState {
+  const SplashScreenBlocStatePackageInformed(SplashScreenBlocModel model)
+      : super(model);
+
+  @override
+  List<Object> get props => [model];
+}
+
 class SplashScreenBlocStateVersionChecked extends SplashScreenBlocState {
-  const SplashScreenBlocStateVersionChecked(SplashScreenBlocModel model) : super(model);
+  const SplashScreenBlocStateVersionChecked(SplashScreenBlocModel model)
+      : super(model);
 
   @override
   List<Object> get props => [model];
 }
 
 class SplashScreenBlocStateVersionFailToCheck extends SplashScreenBlocState {
-  const SplashScreenBlocStateVersionFailToCheck(SplashScreenBlocModel model) : super(model);
+  const SplashScreenBlocStateVersionFailToCheck(SplashScreenBlocModel model)
+      : super(model);
 
   @override
   List<Object> get props => [model];

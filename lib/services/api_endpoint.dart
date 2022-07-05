@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
-
 class ApiEndpoint {
-  final String baseURL = 'http://localhost:3100';
+  static const String baseURL = 'http://localhost:3100';
 
-  String appVersion() {
+  static String appVersion() {
     return "$baseURL/version";
   }
 }
