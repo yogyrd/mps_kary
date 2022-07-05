@@ -3,49 +3,49 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:mobile_kary_corenitymps_kbm/constants/colors.dart';
 
-import 'mvvm/splashscreen_bloc.dart';
-import 'mvvm/splashscreen_bloc_event.dart';
-import 'mvvm/splashscreen_bloc_state.dart';
+import 'bloc/splash_bloc.dart';
+import 'bloc/splash_bloc_event.dart';
+import 'bloc/splash_bloc_state.dart';
 
-class SplashScreenPage extends StatelessWidget {
-  const SplashScreenPage({Key? key}) : super(key: key);
+class SplashPage extends StatelessWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SplashScreenBloc>(
-      create: (_) => SplashScreenBloc(),
-      child: const SplashScreen(),
+    return BlocProvider<SplashBloc>(
+      create: (_) => SplashBloc(),
+      child: const SplashView(),
     );
   }
 }
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class SplashView extends StatefulWidget {
+  const SplashView({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashViewState extends State<SplashView> {
   double? width, height, heightContent;
 
   @override
   void initState() {
     super.initState();
-    context.read<SplashScreenBloc>().add(SplashScreenBlocEventCheckVersion());
+    context.read<SplashBloc>().add(SplashBlocEventCheckVersion());
   }
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 
-    return BlocListener<SplashScreenBloc, SplashScreenBlocState>(
+    return BlocListener<SplashBloc, SplashBlocState>(
       listener: (context, stateListener) {
-        if (stateListener is SplashScreenBlocStateVersionChecked) {
+        if (stateListener is SplashBlocStateVersionChecked) {
           debugPrint(stateListener.model.packageInfo?.version);
         }
       },
-      child: BlocBuilder<SplashScreenBloc, SplashScreenBlocState>(
+      child: BlocBuilder<SplashBloc, SplashBlocState>(
         builder: (context, state) {
           return Scaffold(
             body: Stack(

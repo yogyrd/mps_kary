@@ -8,8 +8,8 @@ import 'package:mobile_kary_corenitymps_kbm/services/api_endpoint.dart';
 import 'package:mobile_kary_corenitymps_kbm/services/api_method.dart';
 
 /// Access local and remote data
-class SplashscreenRepository {
-  SplashscreenRepository();
+class SplashRepository {
+  SplashRepository();
 
   Future<VersionResponse?> getVersion() async {
     try {
