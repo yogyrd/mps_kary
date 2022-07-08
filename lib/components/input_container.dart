@@ -17,7 +17,7 @@ class InputContainer extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(
         colorScheme: ThemeData().colorScheme.copyWith(
-              primary:AppColors.prurussianBlue,
+              primary:AppColors.firebrik,
         ),
       ),
       child: Container(

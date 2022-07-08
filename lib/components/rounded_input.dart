@@ -11,51 +11,62 @@ class RoundedInput extends StatelessWidget {
   const RoundedInput({
     Key? key,
     required this.icon,
-    required this.hint
+    required this.hint,
+    required this.controller
   }) : super(key: key);
 
   final IconData icon;
   final String hint;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return InputContainer(
-      child: TextField(
-        cursorColor: AppColors.prurussianBlue,
+      child: TextFormField(
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Mohon input $hint';
+          } else {
+            return null;
+          }
+        },
+        autofocus: false,
+        controller: controller,
+        cursorColor: AppColors.firebrik,
         decoration: InputDecoration(
           fillColor: Colors.white, filled: true,
           contentPadding: EdgeInsets.symmetric(
-              vertical: 5.0, horizontal: 10.0
+              vertical: 3.0, horizontal: 10.0
           ),
           labelStyle: TextStyle(fontSize: 14, fontFamily: 'Nunito'),
           border: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColors.prurussianBlue, width: 2
+              color: AppColors.firebrik, width: 1
             ),
-            borderRadius: BorderRadius.all(Radius.circular(20.0))
+            borderRadius: BorderRadius.all(Radius.circular(15.0))
           ),
-           focusedBorder: OutlineInputBorder(
-             borderSide: BorderSide(
-               color: AppColors.prurussianBlue, 
-               width: 2
-             ),
-             borderRadius: BorderRadius.all(Radius.circular(15.0))
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: AppColors.firebrik, 
+              width: 1
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(15.0))
           ),
           disabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColors.prurussianBlue, width: 2
+              color: AppColors.firebrik, width: 1
             ),
             borderRadius:BorderRadius.all(Radius.circular(15.0))
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-                color: AppColors.prurussianBlue, width: 2
+                color: AppColors.firebrik, width: 1
             ),
             borderRadius: BorderRadius.all(Radius.circular(15.0))
           ),
           errorBorder: OutlineInputBorder(
             borderSide: BorderSide(
-                color: AppColors.prurussianBlue, width: 2
+                color: AppColors.firebrik, width: 1
             ),
             borderRadius:
               BorderRadius.all(Radius.circular(15.0))

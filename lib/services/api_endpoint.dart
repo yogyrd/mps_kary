@@ -1,7 +1,13 @@
-class ApiEndpoint {
-  static const String baseURL = 'http://localhost:3100';
+import 'package:flutter/cupertino.dart';
 
-  static String appVersion() {
-    return "$baseURL/version";
+class ApiEndpoint {
+  final String baseURL = 'http://159.65.137.87:3000/api';
+
+  String appVersion() {
+    return "$baseURL/version?apps=mobile_karyawan";
+  }
+
+  String login() {
+    return "$baseURL/auth/sign-in";
   }
 }

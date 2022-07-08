@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 import 'splash_bloc_model.dart';
 
-abstract class SplashBlocState extends Equatable {
+class SplashBlocState extends Equatable {
   const SplashBlocState(this.model);
 
   final SplashBlocModel model;
